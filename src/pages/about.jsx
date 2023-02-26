@@ -42,7 +42,7 @@ export default function About() {
         <title>About - Brandon Perfetti</title>
         <meta
           name="description"
-          content="I’m Brandon Perfetti. I'm from Orange County, CA, where I live the dream."
+          content="Im Brandon Perfetti. I'm from Orange County, CA, where I live the dream."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
@@ -59,7 +59,8 @@ export default function About() {
           </div>
           <div className="space-y-4 lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Hey there! 👋<br></br>I’m Brandon Perfetti.<br></br>
+              Hey there! 👋<br></br>
+              <p>I'm Brandon Perfetti.</p>
             </h1>
             <h2 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl">
               I'm from Orange County CA, where I'm living the dream.
@@ -67,7 +68,7 @@ export default function About() {
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 I'm one of those imposters who has found himself lucky enough to
-                have fallen into the wonderful world of web development.
+                have fallen into the wonderful world of web development.{' '}
                 <span aria-label="wink">😉</span>
               </p>
               <p>
@@ -76,7 +77,7 @@ export default function About() {
                 emails out of a gmail inbox, to designing custom reports w/ real
                 estate brokers nationwide, to Senior Data Services Engineer at
                 W+R Studios; hurdled through acquisition all the way to Front
-                End Engineer at Lone Wolf Technologies.{" "}
+                End Engineer at Lone Wolf Technologies.{' '}
                 <span aria-label="rocket">🚀</span>
               </p>
               <p>
@@ -90,7 +91,8 @@ export default function About() {
                 This encompasses building/maintaining RETS, Web API, and SSO
                 (SAML / JWT) integrations while working closely with the
                 technical teams of thrid party partners to ensure smooth
-                operation, security, and data integrity. <span aria-label='hammer and wrench'>🛠️</span>
+                operation, security, and data integrity.{' '}
+                <span aria-label="hammer and wrench">🛠️</span>
               </p>
               <p>
                 This includes daily management of 250+ individual data feeds
@@ -103,7 +105,7 @@ export default function About() {
                 One of those problems surfaced as a need to refactor the front
                 end Data Pipeline ingestion tool I had been using over the years
                 to serve real estate data to a suite of products with intent to
-                expand support to 6 new applications and teams.{" "}
+                expand support to 6 new applications and teams.{' '}
                 <span aria-label="mucsle">💪</span>
               </p>
               <p>
@@ -169,32 +171,25 @@ export default function About() {
             <ul role="list">
               <SocialLink
                 href="https://twitter.com/brandonperfetti"
-                icon={TwitterIcon}
-              >
+                icon={TwitterIcon}>
                 Follow on Twitter
               </SocialLink>
-              {/* <SocialLink href="#" icon={InstagramIcon} className="mt-4">
-                Follow on Instagram
-              </SocialLink> */}
               <SocialLink
                 href="https://github.com/brandonperfetti"
                 icon={GitHubIcon}
-                className="mt-4"
-              >
+                className="mt-4">
                 Follow on GitHub
               </SocialLink>
               <SocialLink
                 href="https://www.linkedin.com/in/brandonperfetti/"
                 icon={LinkedInIcon}
-                className="mt-4"
-              >
+                className="mt-4">
                 Follow on LinkedIn
               </SocialLink>
               <SocialLink
                 href="mailto:brandon@brandonperfetti.com"
                 icon={MailIcon}
-                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
-              >
+                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40">
                 brandon@brandonperfetti.com
               </SocialLink>
             </ul>
@@ -202,5 +197,5 @@ export default function About() {
         </div>
       </Container>
     </>
-  );
+  )
 }
