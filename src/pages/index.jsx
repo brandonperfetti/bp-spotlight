@@ -20,6 +20,7 @@ import image5 from '@/images/photos/image-5.jpg'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
+import { useState } from 'react'
 
 function MailIcon(props) {
   return (
@@ -104,30 +105,189 @@ function SocialLink({ icon: Icon, ...props }) {
 }
 
 function Newsletter() {
+  const [fullname, setFullname] = useState('')
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
+
+  //   Form validation
+  const [errors, setErrors] = useState({})
+
+  //   Setting button text
+  const [buttonText, setButtonText] = useState('Send')
+
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const [showFailureMessage, setShowFailureMessage] = useState(false)
+
+  const handleValidation = () => {
+    let tempErrors = {}
+    let isValid = true
+
+    if (fullname.length <= 0) {
+      tempErrors['fullname'] = true
+      isValid = false
+    }
+    if (email.length <= 0) {
+      tempErrors['email'] = true
+      isValid = false
+    }
+    if (subject.length <= 0) {
+      tempErrors['subject'] = true
+      isValid = false
+    }
+    if (message.length <= 0) {
+      tempErrors['message'] = true
+      isValid = false
+    }
+
+    setErrors({ ...tempErrors })
+    console.log('errors', errors)
+    return isValid
+  }
+
+  //   const [form, setForm] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    let isValidForm = handleValidation()
+
+    if (isValidForm) {
+      setButtonText('Sending')
+      const res = await fetch('/api/sendgrid', {
+        body: JSON.stringify({
+          email: email,
+          fullname: fullname,
+          subject: subject,
+          message: message
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST'
+      })
+
+      const { error } = await res.json()
+      if (error) {
+        console.log(error)
+        setShowSuccessMessage(false)
+        setShowFailureMessage(true)
+        setButtonText('Send')
+
+        // Reset form fields
+        setFullname('')
+        setEmail('')
+        setMessage('')
+        setSubject('')
+        return
+      }
+      setShowSuccessMessage(true)
+      setShowFailureMessage(false)
+      setButtonText('Send')
+      // Reset form fields
+      setFullname('')
+      setEmail('')
+      setMessage('')
+      setSubject('')
+    }
+    console.log(fullname, email, subject, message)
+  }
   return (
     <form
+      onSubmit={handleSubmit}
       action="/thank-you"
-      className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-    >
+      className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
+        <span className="ml-3">Send me a message</span>
       </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+      {/* <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
         Get notified when I publish something new, and unsubscribe at any time.
-      </p>
-      <div className="mt-6 flex">
-        <input
-          type="email"
-          placeholder="Email address"
-          aria-label="Email address"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-        />
-        <Button type="submit" className="ml-4 flex-none">
-          Join
+      </p> */}
+      <div className="mt-6">
+        <div className="flex-row py-2">
+          <input
+            type="text"
+            value={fullname}
+            onChange={(e) => {
+              setFullname(e.target.value)
+            }}
+            placeholder="Full Name"
+            aria-label="Full Name"
+            required
+            name="fullname"
+            className="min-w-0 w-full flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
+          />
+          {errors?.fullname && (
+            <p className="text-red-500">Fullname cannot be empty.</p>
+          )}
+        </div>
+        <div className="flex-row py-2">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value)
+            }}
+            placeholder="Email address"
+            aria-label="Email address"
+            required
+            className="min-w-0 w-full flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
+          />
+          {errors?.email && (
+            <p className="text-red-500">Email cannot be empty.</p>
+          )}
+        </div>
+      <div>
+        <div className="flex-row py-2">
+          <input
+            type="text"
+            name="subject"
+            value={subject}
+            onChange={(e) => {
+              setSubject(e.target.value)
+            }}
+            placeholder="Subject"
+            aria-label="Subject"
+            required
+            className="w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
+          />
+          {errors?.subject && (
+            <p className="text-red-500">Subject cannot be empty.</p>
+          )}
+        </div>
+        <div className="flex-row py-2">
+          <textarea
+            name="message"
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value)
+            }}
+            placeholder="Message"
+            aria-label="Message"
+            required
+            className="w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"></textarea>
+          {errors?.message && (
+            <p className="text-red-500">Message body cannot be empty.</p>
+            )}
+        </div>
+        <Button type="submit" className="w-full flex-none">
+          {buttonText}
         </Button>
       </div>
+      <div className="text-left">
+        {showSuccessMessage && (
+          <p className="my-2 text-sm font-semibold text-green-500">
+            Thank you! Your Message has been delivered.
+          </p>
+        )}
+        {showFailureMessage && (
+          <p className="text-red-500">
+            Oops! Something went wrong, please try again.
+          </p>
+        )}
+      </div>
+        </div>
     </form>
   )
 }
