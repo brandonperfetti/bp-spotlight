@@ -324,7 +324,7 @@ function Resume() {
     },
     {
       company: "W+R Studios",
-      title: "Director, Support",
+      title: "Manager, Support",
       logo: logoWrStudios,
       start: "2012",
       end: "2013",
@@ -357,8 +357,7 @@ function Resume() {
                 className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
                 aria-label={`${role.start.label ?? role.start} until ${
                   role.end.label ?? role.end
-                }`}
-              >
+                }`}>
                 <time dateTime={role.start.dateTime ?? role.start}>
                   {role.start.label ?? role.start}
                 </time>{' '}
@@ -371,7 +370,10 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button
+        href="assets/bp-cv.pdf"
+        variant="secondary"
+        className="group mt-6 w-full">
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
@@ -411,7 +413,7 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Brandon Perfetti - Software engineer, quantum realist, and explorer of mind.
+          Brandon Perfetti - Software engineer, quantum realist, and explorer of the mind.
         </title>
         <meta
           name="description"
@@ -421,7 +423,7 @@ export default function Home({ articles }) {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software engineer, quantum realist, and explorer of mind.
+            Software engineer, quantum realist, and explorer of the mind.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Brandon, a software engineer and entrepreneur based in Orange
