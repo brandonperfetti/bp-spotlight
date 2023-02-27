@@ -1,15 +1,15 @@
-import { ArticleLayout } from "@/components/ArticleLayout";
-import Image from "next/image";
-import sailboat from "./sailboat.jpg";
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import sailboat from './sailboat.jpg'
 
 export const meta = {
-  author: "Brandon Perfetti",
-  date: "2020-08-08",
-  title: "Perception vs Reality",
-  description: "Step above your perception into awareness.",
-};
+  author: 'Brandon Perfetti',
+  date: '2020-08-08',
+  title: 'Perception vs Reality',
+  description: 'Step above your perception into awareness.'
+}
 
-export default (props) => <ArticleLayout meta={meta} {...props} />;
+export default (props) => <ArticleLayout meta={meta} {...props} />
 
 <Image src={sailboat} alt="Sailboat" />
 
@@ -241,7 +241,12 @@ In doing so, we're able to take control of how the universe observes us.
 
 ### Anyone familiar with the double-slit experiment?
 
-`video: https://www.youtube.com/embed/Iuv6hY6zsd0`
+<iframe
+  className="w-full rounded-md"
+  src="https://www.youtube.com/embed/Iuv6hY6zsd0"
+  height="400"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>
 
 # The Eye of the Beholder
 
@@ -389,4 +394,6 @@ It is best to do so as the magician, energy-efficient, and objectively aware of 
 
 This post was inspired by [**Von Galt's**](https://www.amazon.com/gp/product/B01D284RVO/ref=dbs_a_def_rwt_bibl_vppi_i0) appearance on [**Lighting the Void**](https://twitter.com/lightingthevoid).
 
-<iframe src="https://open.spotify.com/embed/episode/72bbNDtHaBSFEcv9khMTKa?utm_source=generator"></iframe>
+<iframe
+  className="w-full rounded-md"
+  src="https://open.spotify.com/embed/episode/72bbNDtHaBSFEcv9khMTKa?utm_source=generator"></iframe>

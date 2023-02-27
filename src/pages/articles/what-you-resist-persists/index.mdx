@@ -1,15 +1,15 @@
-import { ArticleLayout } from "@/components/ArticleLayout";
-import Image from "next/image";
-import facePlant from "./face-plant.jpg";
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import facePlant from './face-plant.jpg'
 
 export const meta = {
-  author: "Brandon Perfetti",
-  date: "2020-02-22",
-  title: "What You Resist, Persists",
-  description: "No one got anywhere by sticking their head in the sand.",
-};
+  author: 'Brandon Perfetti',
+  date: '2020-02-22',
+  title: 'What You Resist, Persists',
+  description: 'No one got anywhere by sticking their head in the sand.'
+}
 
-export default (props) => <ArticleLayout meta={meta} {...props} />;
+export default (props) => <ArticleLayout meta={meta} {...props} />
 
 <Image src={facePlant} alt="Face planting woman" />
 
@@ -240,4 +240,6 @@ _**Do right and fear no man**_.
 
 This post was inspired by Brian Scott's podcast, [The Reality Revolution](http://www.therealityrevolution.com/).
 
-<iframe src="https://player.simplecast.com/d9d77c77-e2ba-45d7-896d-d2d28838dece?dark=true"></iframe>
+<iframe
+  className="w-full rounded-md"
+  src="https://player.simplecast.com/d9d77c77-e2ba-45d7-896d-d2d28838dece?dark=true"></iframe>

@@ -1,15 +1,15 @@
-import { ArticleLayout } from "@/components/ArticleLayout";
-import Image from "next/image";
-import hotAirBaloon from "./hot-air-baloon.jpg";
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import hotAirBaloon from './hot-air-baloon.jpg'
 
 export const meta = {
-  author: "Brandon Perfetti",
-  date: "2020-09-22",
-  title: "Get Gone",
-  description: "Delve into self until the heart becomes the paintbrush.",
-};
+  author: 'Brandon Perfetti',
+  date: '2020-09-22',
+  title: 'Get Gone',
+  description: 'Delve into self until the heart becomes the paintbrush.'
+}
 
-export default (props) => <ArticleLayout meta={meta} {...props} />;
+export default (props) => <ArticleLayout meta={meta} {...props} />
 
 <Image src={hotAirBaloon} alt="Hot air baloon" />
 
@@ -333,4 +333,6 @@ Tune your heart, let it unify with your mind, and seek out a life of joy and fre
 
 This post was inspired by Brian Scott's podcast, [The Reality Revolution](http://www.therealityrevolution.com/).
 
-<iframe src="https://player.simplecast.com/32921962-8eae-4aa9-9f8e-d083834401dd?dark=false"></iframe>
+<iframe
+  className="w-full rounded-md"
+  src="https://player.simplecast.com/32921962-8eae-4aa9-9f8e-d083834401dd?dark=false"></iframe>

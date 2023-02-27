@@ -1,15 +1,15 @@
-import { ArticleLayout } from "@/components/ArticleLayout";
-import Image from "next/image";
-import infiniteLoop from "./infinite-loop.jpg";
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import infiniteLoop from './infinite-loop.jpg'
 
 export const meta = {
-  author: "Brandon Perfetti",
-  date: "2020-01-11",
-  title: "If This, Then That",
-  description: "How to get out of your way and set yourself up for success.",
-};
+  author: 'Brandon Perfetti',
+  date: '2020-01-11',
+  title: 'If This, Then That',
+  description: 'How to get out of your way and set yourself up for success.'
+}
 
-export default (props) => <ArticleLayout meta={meta} {...props} />;
+export default (props) => <ArticleLayout meta={meta} {...props} />
 
 <Image src={infiniteLoop} alt="Electric Inifity Sign" />
 
@@ -220,4 +220,6 @@ Cheers!
 
 This post was inspired by [**Jay Shetty's**](https://twitter.com/JayShettyIW) podcast, [**On Purpose**](https://jayshetty.me/the-4-tier-framework-to-effective-goal-setting-why-youve-failed-in-the-past/).
 
-<iframe src="https://open.spotify.com/embed/episode/3D6j7t457aNZRq2dd2HGiE?utm_source=generator&theme=0"></iframe>
+<iframe
+  className="w-full rounded-md"
+  src="https://open.spotify.com/embed/episode/3D6j7t457aNZRq2dd2HGiE?utm_source=generator&theme=0"></iframe>

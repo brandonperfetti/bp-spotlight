@@ -1,16 +1,16 @@
-import { ArticleLayout } from "@/components/ArticleLayout";
-import Image from "next/image";
-import moonHut from "./moon-hut.jpg";
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import moonHut from './moon-hut.jpg'
 
 export const meta = {
-  author: "Brandon Perfetti",
-  date: "2020-11-29",
-  title: "Fostered In Gratitude",
+  author: 'Brandon Perfetti',
+  date: '2020-11-29',
+  title: 'Fostered In Gratitude',
   description:
-    "Wholeness lies in being humble, engaging the flow of the universe, and reintegrating the soul.",
-};
+    'Wholeness lies in being humble, engaging the flow of the universe, and reintegrating the soul.'
+}
 
-export default (props) => <ArticleLayout meta={meta} {...props} />;
+export default (props) => <ArticleLayout meta={meta} {...props} />
 
 <Image src={moonHut} alt="Hand and seedling" />
 
@@ -290,7 +290,12 @@ They've got no interest in dominating or controlling anyone outside of themselve
 
 > Charlie Chaplin - "The Great Dictator"
 
-`video: https://www.youtube.com/embed/w8HdOHrc3OQ`
+<iframe
+  className="w-full rounded-md"
+  src="https://www.youtube.com/embed/w8HdOHrc3OQ"
+  height="400"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>
 
 # Conclusion
 
@@ -331,6 +336,6 @@ Program yourself to become grateful for every single moment and let that spread 
 This post was inspired by Brian Scott's [The Reality Revolution](https://www.therealityrevolution.com/guided-meditation-the-gratifestation-octave/) podcast.
 
 <iframe
+  className="w-full rounded-md"
   height="200px"
-  src="https://player.simplecast.com/30c18b4e-ab8c-4be0-8bb6-2d092e91fe84?dark=true"
-></iframe>
+  src="https://player.simplecast.com/30c18b4e-ab8c-4be0-8bb6-2d092e91fe84?dark=true"></iframe>
