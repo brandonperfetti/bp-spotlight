@@ -4,74 +4,74 @@ import Image from 'next/image'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoBeautyByCaseyLauren from '@/images/logos/bbcl.svg'
+import logoEmp from '@/images/logos/emp.svg'
 import logoSansFaux from '@/images/logos/sans-faux.svg'
 import logoSlickFits from '@/images/logos/slick-fits.svg'
 import logoSlicksSlices from '@/images/logos/slicks-slices.svg'
 import logoTaoistProgrammer from '@/images/logos/taoist-programmer.svg'
-import logoEmp from '@/images/logos/emp.svg'
 
 const projects = [
   {
-    name: "Sans Faux Studios",
-    description: "Craft your digital reality, without artifice.",
-    link: { href: "http://sansfaux.com/", label: "sansfaux.com" },
-    logo: logoSansFaux,
+    name: 'Sans Faux Studios',
+    description: 'Craft your digital reality, without artifice.',
+    link: { href: 'http://sansfaux.com/', label: 'sansfaux.com' },
+    logo: logoSansFaux
   },
   {
-    name: "BEAUTY By Casey Lauren",
-    description: "Event Stylist Landing Page",
+    name: 'BEAUTY By Casey Lauren',
+    description: 'Event Stylist Landing Page',
     link: {
-      href: "https://beautybycaseylauren.com/",
-      label: "beautybycaseylauren.com",
+      href: 'https://beautybycaseylauren.com/',
+      label: 'beautybycaseylauren.com'
     },
-    logo: logoBeautyByCaseyLauren,
+    logo: logoBeautyByCaseyLauren
   },
   {
-    name: "Taoist Programmer",
-    description: "Digital Thought Garden",
+    name: 'Taoist Programmer',
+    description: 'Digital Thought Garden',
     link: {
-      href: "https://taoistprogrammer.com/",
-      label: "taoistprogrammer.com",
+      href: 'https://taoistprogrammer.com/',
+      label: 'taoistprogrammer.com'
     },
-    logo: logoTaoistProgrammer,
+    logo: logoTaoistProgrammer
   },
   {
-    name: "Taoist Shop",
-    description: "Shopify eCommerce Webstore",
+    name: 'Taoist Shop',
+    description: 'Shopify eCommerce Webstore',
     link: {
-      href: "https://shop.taoistprogrammer.com/",
-      label: "shop.taoistprogrammer.com",
+      href: 'https://shop.taoistprogrammer.com/',
+      label: 'shop.taoistprogrammer.com'
     },
-    logo: logoTaoistProgrammer,
+    logo: logoTaoistProgrammer
   },
   {
-    name: "Slicks Slices",
-    description: "Local Eatery Webstore",
+    name: 'Slicks Slices',
+    description: 'Local Eatery Webstore',
     link: {
-      href: "https://slicks-slices-brandon.netlify.app/",
-      label: "slicks.slices",
+      href: 'https://slicks-slices-brandon.netlify.app/',
+      label: 'slicks.slices'
     },
-    logo: logoSlicksSlices,
+    logo: logoSlicksSlices
   },
   {
-    name: "Slick Fits",
-    description: "eCommerce Front End Application, Admin UI, and GraphQL API",
+    name: 'Slick Fits',
+    description: 'eCommerce Front End Application, Admin UI, and GraphQL API',
     link: {
-      href: "https://slickfits.shop/",
-      label: "slickfits.shop",
+      href: 'https://slickfits.shop/',
+      label: 'slickfits.shop'
     },
-    logo: logoSlickFits,
+    logo: logoSlickFits
   },
   {
-    name: "EMP Consultants",
-    description: "Consulting Firm Marketing Landing Page",
+    name: 'EMP Consultants',
+    description: 'Consulting Firm Marketing Landing Page',
     link: {
-      href: "https://emp-consultants-app.netlify.app/",
-      label: "emp-consultants",
+      href: 'https://emp-consultants-app.netlify.app/',
+      label: 'emp-consultants'
     },
-    logo: logoEmp,
-  },
-];
+    logo: logoEmp
+  }
+]
 
 function LinkIcon(props) {
   return (
@@ -96,12 +96,10 @@ export default function Projects() {
       </Head>
       <SimpleLayout
         title="Things I’ve made trying to put my dent in the universe."
-        intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
-      >
+        intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.">
         <ul
           role="list"
-          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-        >
+          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <Card as="li" key={project.name}>
               <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">

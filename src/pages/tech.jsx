@@ -3,13 +3,13 @@ import Image from 'next/image'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoEmp from '@/images/logos/emp.svg'
 import logoGatsby from '@/images/logos/gatsby.svg'
 import logoGraphQL from '@/images/logos/graphql.svg'
 import logoHeadlessUI from '@/images/logos/headless-ui.svg'
 import logoJavaScript from '@/images/logos/javascript.svg'
 import logoKeystone from '@/images/logos/keystone.svg'
 import logoMongoDB from '@/images/logos/mongo-db.svg'
+import logoNetlify from '@/images/logos/netlify.svg'
 import logoNext from '@/images/logos/next.svg'
 import logoNode from '@/images/logos/node.svg'
 import logoNpm from '@/images/logos/npm.svg'
@@ -18,11 +18,11 @@ import logoReactRouter from '@/images/logos/react-router.svg'
 import logoReact from '@/images/logos/react.svg'
 import logoRemix from '@/images/logos/remix.svg'
 import logoSupabase from '@/images/logos/supabase.svg'
-import logoNetlify from '@/images/logos/netlify.svg'
 import logoTailwind from '@/images/logos/tailwind.svg'
 import logoTypeScript from '@/images/logos/typescript.svg'
-import logoYarn from '@/images/logos/yarn.svg'
 import logoVercel from '@/images/logos/vercel.svg'
+import logoVite from '@/images/logos/vite.svg'
+import logoYarn from '@/images/logos/yarn.svg'
 
 const techStack = [
   {
@@ -73,6 +73,15 @@ const techStack = [
       label: 'nextjs.org'
     },
     logo: logoNext
+  },
+  {
+    name: 'Vite',
+    description: `Vite (French word for "quick", pronounced /vit/, like "veet") is a build tool that aims to provide a faster and leaner development experience for modern web projects. It consists of two major parts: A dev server that provides rich feature enhancements over native ES modules, for example extremely fast Hot Module Replacement (HMR). A build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for production.`,
+    link: {
+      href: 'https://vitejs.dev/',
+      label: 'vitejs.dev'
+    },
+    logo: logoVite
   },
   {
     name: 'Remix',
@@ -244,21 +253,14 @@ export default function TechStack() {
       </Head>
       <SimpleLayout
         title="A blacksmith is nothing without his tools."
-        intro="Each project demands a unique mixture of Browser, Programming Language, Framework, Database, Web Server, and Operating System. I've grown accustom to reaching for these technologies first."
-      >
+        intro="Each project demands a unique mixture of Browser, Programming Language, Framework, Database, Web Server, and Operating System. I've grown accustom to reaching for these technologies first.">
         <ul
           role="list"
-          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-        >
+          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {techStack.map((tech) => (
             <Card as="li" key={tech.name}>
               <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                <Image
-                  src={tech.logo}
-                  alt=""
-                  className="h-8 w-8"
-                  unoptimized
-                />
+                <Image src={tech.logo} alt="" className="h-8 w-8" unoptimized />
               </div>
               <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
                 <Card.Link href={tech.link.href}>{tech.name}</Card.Link>

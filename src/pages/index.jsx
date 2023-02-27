@@ -6,10 +6,7 @@ import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon, LinkedInIcon,
-  TwitterIcon
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
 import logoLoneWolf from '@/images/logos/lone-wolf.svg'
 import logoWrStudios from '@/images/logos/wr-studios.svg'
 import image1 from '@/images/photos/image-1.jpg'
@@ -20,7 +17,7 @@ import image5 from '@/images/photos/image-5.jpg'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function MailIcon(props) {
   return (
@@ -31,8 +28,7 @@ function MailIcon(props) {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      {...props}
-    >
+      {...props}>
       <path
         d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
         className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
@@ -54,8 +50,7 @@ function BriefcaseIcon(props) {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      {...props}
-    >
+      {...props}>
       <path
         d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
         className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
@@ -117,6 +112,19 @@ function Newsletter() {
   const [buttonText, setButtonText] = useState('Send')
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+
+  useEffect(() => {
+    if (!showSuccessMessage) return
+
+    const timeout = setTimeout(() => {
+      setShowSuccessMessage(false)
+    }, 2000)
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [showSuccessMessage])
+
   const [showFailureMessage, setShowFailureMessage] = useState(false)
 
   const handleValidation = () => {
@@ -144,8 +152,6 @@ function Newsletter() {
     console.log('errors', errors)
     return isValid
   }
-
-  //   const [form, setForm] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -216,7 +222,7 @@ function Newsletter() {
             aria-label="Full Name"
             required
             name="fullname"
-            className="min-w-0 w-full flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
+            className="w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
           />
           {errors?.fullname && (
             <p className="text-red-500">Fullname cannot be empty.</p>
@@ -232,62 +238,62 @@ function Newsletter() {
             placeholder="Email address"
             aria-label="Email address"
             required
-            className="min-w-0 w-full flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
+            className="w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
           />
           {errors?.email && (
             <p className="text-red-500">Email cannot be empty.</p>
           )}
         </div>
-      <div>
-        <div className="flex-row py-2">
-          <input
-            type="text"
-            name="subject"
-            value={subject}
-            onChange={(e) => {
-              setSubject(e.target.value)
-            }}
-            placeholder="Subject"
-            aria-label="Subject"
-            required
-            className="w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-          />
-          {errors?.subject && (
-            <p className="text-red-500">Subject cannot be empty.</p>
+        <div>
+          <div className="flex-row py-2">
+            <input
+              type="text"
+              name="subject"
+              value={subject}
+              onChange={(e) => {
+                setSubject(e.target.value)
+              }}
+              placeholder="Subject"
+              aria-label="Subject"
+              required
+              className="w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
+            />
+            {errors?.subject && (
+              <p className="text-red-500">Subject cannot be empty.</p>
+            )}
+          </div>
+          <div className="flex-row py-2">
+            <textarea
+              name="message"
+              value={message}
+              onChange={(e) => {
+                setMessage(e.target.value)
+              }}
+              placeholder="Message"
+              aria-label="Message"
+              required
+              className="w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"></textarea>
+            {errors?.message && (
+              <p className="text-red-500">Message body cannot be empty.</p>
+            )}
+          </div>
+          <Button type="submit" className="w-full flex-none">
+            {buttonText}
+          </Button>
+        </div>
+        <div className="text-left">
+          {showSuccessMessage && (
+            <p className="my-2 text-sm font-semibold text-green-500">
+              Thank you! Your Message has been delivered.
+            </p>
+          )}
+          {showFailureMessage && (
+            <p className="text-red-500">
+              Oops! Something went wrong, please try again.
+            </p>
           )}
         </div>
-        <div className="flex-row py-2">
-          <textarea
-            name="message"
-            value={message}
-            onChange={(e) => {
-              setMessage(e.target.value)
-            }}
-            placeholder="Message"
-            aria-label="Message"
-            required
-            className="w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"></textarea>
-          {errors?.message && (
-            <p className="text-red-500">Message body cannot be empty.</p>
-            )}
-        </div>
-        <Button type="submit" className="w-full flex-none">
-          {buttonText}
-        </Button>
       </div>
-      <div className="text-left">
-        {showSuccessMessage && (
-          <p className="my-2 text-sm font-semibold text-green-500">
-            Thank you! Your Message has been delivered.
-          </p>
-        )}
-        {showFailureMessage && (
-          <p className="text-red-500">
-            Oops! Something went wrong, please try again.
-          </p>
-        )}
-      </div>
-        </div>
     </form>
   )
 }
@@ -295,41 +301,41 @@ function Newsletter() {
 function Resume() {
   let resume = [
     {
-      company: "Lone Wolf Technologies",
-      title: "Front End Engineer",
+      company: 'Lone Wolf Technologies',
+      title: 'Front End Engineer',
       logo: logoLoneWolf,
-      start: "2020",
-      end: "Present",
+      start: '2020',
+      end: 'Present'
     },
     {
-      company: "W+R Studios",
-      title: "Senior Data Services Engineer",
+      company: 'W+R Studios',
+      title: 'Senior Data Services Engineer',
       logo: logoWrStudios,
-      start: "2017",
-      end: "2020",
+      start: '2017',
+      end: '2020'
     },
     {
-      company: "W+R Studios",
-      title: "Theme Developer",
+      company: 'W+R Studios',
+      title: 'Theme Developer',
       logo: logoWrStudios,
-      start: "2015",
-      end: "2017",
+      start: '2015',
+      end: '2017'
     },
     {
-      company: "W+R Studios",
-      title: "Data Services Engineer",
+      company: 'W+R Studios',
+      title: 'Data Services Engineer',
       logo: logoWrStudios,
-      start: "2013",
-      end: "2015",
+      start: '2013',
+      end: '2015'
     },
     {
-      company: "W+R Studios",
-      title: "Manager, Support",
+      company: 'W+R Studios',
+      title: 'Manager, Support',
       logo: logoWrStudios,
-      start: "2012",
-      end: "2013",
-    },
-  ];
+      start: '2012',
+      end: '2013'
+    }
+  ]
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
@@ -393,8 +399,7 @@ function Photos() {
             className={clsx(
               'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
               rotations[imageIndex % rotations.length]
-            )}
-          >
+            )}>
             <Image
               src={image}
               alt=""
@@ -413,11 +418,12 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Brandon Perfetti - Software engineer, quantum realist, and explorer of the mind.
+          Brandon Perfetti - Software engineer, quantum realist, and explorer of
+          the mind.
         </title>
         <meta
           name="description"
-          content="I’m Brandon, a software engineer and entrepreneur based in Orange County CA. I do a bit of this and a bit of that. A jack of all trades, master of none. But I mostly enjoy building things that improve peoples lives."
+          content="I’m Brandon, a software engineer and entrepreneur based in Orange County CA. I do a bit of this and a bit of that. A jack of all trades, master of none. I mostly enjoy building things that improve the lives of others."
         />
       </Head>
       <Container className="mt-9">
@@ -428,8 +434,8 @@ export default function Home({ articles }) {
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Brandon, a software engineer and entrepreneur based in Orange
             County CA. I do a bit of this and a bit of that. A jack of all
-            trades, master of none. But I mostly enjoy building things that
-            improve peoples lives.
+            trades, master of none. I mostly enjoy building things that improve
+            the lives of others.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -465,7 +471,7 @@ export default function Home({ articles }) {
         </div>
       </Container>
     </>
-  );
+  )
 }
 
 export async function getStaticProps() {
@@ -477,7 +483,7 @@ export async function getStaticProps() {
     props: {
       articles: (await getAllArticles())
         .slice(0, 4)
-        .map(({ component, ...meta }) => meta),
-    },
+        .map(({ component, ...meta }) => meta)
+    }
   }
 }
