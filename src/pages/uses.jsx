@@ -70,9 +70,9 @@ export default function Uses() {
           </ToolsSection>
           <ToolsSection title="Development tools">
             <Tool title="Visual Studio Code">
-              I'm not trying to pretend i'm hackerman. I enjoy writing in VS
-              Code as the vast extension library elevates my skillset and makes
-              me wicked fast and efficient when deep in a coding flow state.
+              I enjoy writing in VS Code as the vast extension library elevates
+              my skillset and makes me wicked fast and efficient when deep in a
+              coding flow state.
             </Tool>
             <Tool title="GitKraken">
               Working in a sea of git repos and workflows can be taxing on the
@@ -104,15 +104,31 @@ export default function Uses() {
           </ToolsSection>
           <ToolsSection title="Podcasts">
             <Tool title="Syntax.fm">
-              Full Stack Developers Wes Bos and Scott Tolinski dive deep into web development topics, explaining how they work and talking about their own experiences. They cover from JavaScript frameworks like React, to the latest advancements in CSS to simplifying web tooling.
+              Full Stack Developers Wes Bos and Scott Tolinski dive deep into
+              web development topics, explaining how they work and talking about
+              their own experiences. They cover from JavaScript frameworks like
+              React, to the latest advancements in CSS to simplifying web
+              tooling.
             </Tool>
             <Tool title="The Changelog">
-              Conversations with the hackers, leaders, and innovators of the software world.  On Mondays: The software world moves fast. Keep up with our brief News roundup episodes. On Fridays: Adam Stacoviak and Jerod Santo face their imposter syndrome so you don’t have to. Expect in-depth interviews with the best and brightest in software engineering, open source & leadership. This is a polyglot podcast. All programming languages, platforms & communities are welcome.</Tool>
-            <Tool title="Nav.al">
-              Technology and Business Entrepreneurship
+              Conversations with the hackers, leaders, and innovators of the
+              software world. On Mondays: The software world moves fast. Keep up
+              with our brief News roundup episodes. On Fridays: Adam Stacoviak
+              and Jerod Santo face their imposter syndrome so you don’t have to.
+              Expect in-depth interviews with the best and brightest in software
+              engineering, open source & leadership. This is a polyglot podcast.
+              All programming languages, platforms & communities are welcome.
             </Tool>
+            <Tool title="Nav.al">Technology and Business Entrepreneurship</Tool>
             <Tool title="The Tim Ferris Show">
-              Tim Ferriss is a self-experimenter and bestselling author, best known for The 4-Hour Workweek, which has been translated into 40+ languages.  Newsweek calls him "the world's best human guinea pig," and The New York Times calls him "a cross between Jack Welch and a Buddhist monk."  In this show, he deconstructs world-class performers from eclectic areas (investing, chess, pro sports, etc.), digging deep to find the tools, tactics, and tricks that listeners can use.
+              Tim Ferriss is a self-experimenter and bestselling author, best
+              known for The 4-Hour Workweek, which has been translated into 40+
+              languages. Newsweek calls him "the world's best human guinea pig,"
+              and The New York Times calls him "a cross between Jack Welch and a
+              Buddhist monk." In this show, he deconstructs world-class
+              performers from eclectic areas (investing, chess, pro sports,
+              etc.), digging deep to find the tools, tactics, and tricks that
+              listeners can use.
             </Tool>
           </ToolsSection>
         </div>
