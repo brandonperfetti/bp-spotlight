@@ -7,6 +7,7 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import avatarImage from '@/images/avatar.jpg'
+import Search from './Search'
 
 function CloseIcon(props) {
   return (
@@ -169,6 +170,7 @@ function DesktopNavigation(props) {
         <NavItem href="/tech">Tech</NavItem>
         {/* <NavItem href="/speaking">Speaking</NavItem> */}
         <NavItem href="/uses">Uses</NavItem>
+
       </ul>
     </nav>
   )
@@ -358,9 +360,8 @@ export function Header() {
         className="pointer-events-none relative z-50 flex flex-col"
         style={{
           height: 'var(--header-height)',
-          marginBottom: 'var(--header-mb)',
-        }}
-      >
+          marginBottom: 'var(--header-mb)'
+        }}>
         {isHomePage && (
           <>
             <div
@@ -369,18 +370,16 @@ export function Header() {
             />
             <Container
               className="top-0 order-last -mb-3 pt-3"
-              style={{ position: 'var(--header-position)' }}
-            >
+              style={{ position: 'var(--header-position)' }}>
               <div
                 className="top-[var(--avatar-top,theme(spacing.3))] w-full"
-                style={{ position: 'var(--header-inner-position)' }}
-              >
+                style={{ position: 'var(--header-inner-position)' }}>
                 <div className="relative">
                   <AvatarContainer
                     className="absolute left-0 top-3 origin-left transition-opacity"
                     style={{
                       opacity: 'var(--avatar-border-opacity, 0)',
-                      transform: 'var(--avatar-border-transform)',
+                      transform: 'var(--avatar-border-transform)'
                     }}
                   />
                   <Avatar
@@ -396,12 +395,10 @@ export function Header() {
         <div
           ref={headerRef}
           className="top-0 z-10 h-16 pt-6"
-          style={{ position: 'var(--header-position)' }}
-        >
+          style={{ position: 'var(--header-position)' }}>
           <Container
             className="top-[var(--header-top,theme(spacing.6))] w-full"
-            style={{ position: 'var(--header-inner-position)' }}
-          >
+            style={{ position: 'var(--header-inner-position)' }}>
             <div className="relative flex gap-4">
               <div className="flex flex-1">
                 {!isHomePage && (
@@ -417,6 +414,7 @@ export function Header() {
               <div className="flex justify-end md:flex-1">
                 <div className="pointer-events-auto">
                   <ModeToggle />
+                  <Search />
                 </div>
               </div>
             </div>
