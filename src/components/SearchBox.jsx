@@ -1,12 +1,13 @@
 import { connectSearchBox } from 'react-instantsearch-dom'
+import { SearchFilterInput } from './SearchFilterInput'
 
 function SearchBox({ refine }) {
   return (
     <>
-      <input
+      <SearchFilterInput
         id="algolia_search"
         type="search"
-        placeholder="Search for articles!"
+        placeholder="Search anything!"
         onChange={(e) => refine(e.currentTarget.value)}
       />
     </>
