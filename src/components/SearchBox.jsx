@@ -7,7 +7,7 @@ function SearchBox({ refine }) {
       <SearchFilterInput
         id="algolia_search"
         type="search"
-        placeholder="Search anything!"
+        placeholder="Search for anything!"
         onChange={(e) => refine(e.currentTarget.value)}
       />
     </>

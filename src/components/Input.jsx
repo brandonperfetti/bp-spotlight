@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import { forwardRef } from 'react'
 import { Spinner } from './Spinner'
 
@@ -26,7 +26,7 @@ export const Input = forwardRef(function Input(
   const Element = as || defaultElement
 
   return (
-    <div className={classNames('relative', { 'w-full': fullWidth })}>
+    <div className={clsx('relative', { 'w-full': fullWidth })}>
       {!!leftIcon && (
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
           <div className="h-5 w-5 text-gray-500" aria-hidden>
@@ -40,7 +40,7 @@ export const Input = forwardRef(function Input(
         {...props}
         readOnly={readOnly}
         disabled={disabled}
-        className={classNames(
+        className={clsx(
           'block w-full appearance-none border p-2 shadow-sm focus:outline-none focus:ring-0',
           {
             'border-gray-300': variant === 'primary',

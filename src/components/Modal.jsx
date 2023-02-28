@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
-import classNames from 'classnames'
+import clsx from 'clsx'
 import { Children, createContext, Fragment, useContext } from 'react'
 
 const ModalContext = createContext({
@@ -30,18 +30,18 @@ export function Modal({
 
   const body = (
     <div
-      className={classNames('flex min-h-screen justify-center', {
+      className={clsx('mt-8 flex min-h-screen justify-center', {
         'items-center': !fullHeight,
         'p-4': size !== 'full-screen'
       })}>
       <Transition.Child
         as={Fragment}
-        enter={classNames({ 'ease-out duration-300': !isFullScreen })}
-        enterFrom={classNames({ 'opacity-0': !isFullScreen })}
-        enterTo={classNames({ 'opacity-100': !isFullScreen })}
-        leave={classNames({ 'ease-in duration-200': !isFullScreen })}
-        leaveFrom={classNames({ 'opacity-100': !isFullScreen })}
-        leaveTo={classNames({ 'opacity-0': !isFullScreen })}>
+        enter={clsx({ 'ease-out duration-300': !isFullScreen })}
+        enterFrom={clsx({ 'opacity-0': !isFullScreen })}
+        enterTo={clsx({ 'opacity-100': !isFullScreen })}
+        leave={clsx({ 'ease-in duration-200': !isFullScreen })}
+        leaveFrom={clsx({ 'opacity-100': !isFullScreen })}
+        leaveTo={clsx({ 'opacity-0': !isFullScreen })}>
         <div>
           {disableTrap && (
             <div
@@ -63,23 +63,23 @@ export function Modal({
       </Transition.Child>
       <Transition.Child
         as={Fragment}
-        enter={classNames({ 'ease-out duration-300': !isFullScreen })}
-        enterFrom={classNames({
+        enter={clsx({ 'ease-out duration-300': !isFullScreen })}
+        enterFrom={clsx({
           'opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95': !isFullScreen
         })}
-        enterTo={classNames({
+        enterTo={clsx({
           'opacity-100 translate-y-0 sm:scale-100': !isFullScreen
         })}
-        leave={classNames({ 'ease-in duration-200': !isFullScreen })}
-        leaveFrom={classNames({
+        leave={clsx({ 'ease-in duration-200': !isFullScreen })}
+        leaveFrom={clsx({
           'opacity-100 translate-y-0 sm:scale-100': !isFullScreen
         })}
-        leaveTo={classNames({
+        leaveTo={clsx({
           'opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95': !isFullScreen
         })}
         afterLeave={onAfterClose}>
         <div
-          className={classNames('transform shadow-xl transition-all', {
+          className={clsx('transform shadow-xl transition-all', {
             'max-w-xs': size === 'xs',
             'max-w-sm': size === 'sm',
             'max-w-md': size === 'md',
@@ -126,13 +126,11 @@ export function Modal({
     <ModalContext.Provider value={{ disableTrap, isFullScreen, onClose }}>
       <Transition.Root show={isOpen} as={Fragment}>
         <div>
-          {disableTrap && (
-            <div className="fixed inset-0 z-40 overflow-y-auto">{body}</div>
-          )}
+          {disableTrap && <div className="fixed inset-0 z-40">{body}</div>}
           {!disableTrap && (
             <Dialog
               as="div"
-              className="fixed inset-0 z-40 overflow-y-auto"
+              className="fixed inset-0 z-40"
               onClose={() => {
                 // We don't want the user to close the modal when
                 // they hit the escape key when in fullscreen.

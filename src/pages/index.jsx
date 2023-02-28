@@ -196,7 +196,7 @@ function Newsletter() {
       setMessage('')
       setSubject('')
     }
-    console.log(fullname, email, subject, message)
+    // console.log(fullname, email, subject, message)
   }
   return (
     <form
