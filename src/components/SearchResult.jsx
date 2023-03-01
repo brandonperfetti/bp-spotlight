@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useState } from 'react'
 import { connectStateResults, Hits, Index } from 'react-instantsearch-dom'
 
 const HitCount = connectStateResults(({ searchState, searchResults }) => {
@@ -26,7 +27,7 @@ const PageHit = connectStateResults(({ searchState, searchResults, hit }) => {
     <div>
       <div className="my-4 grid">
         <Link href={hit.pathname}>
-          <h2 className="text-base font-semibold text-zinc-800 hover:text-teal-500 dark:text-zinc-100">
+          <h2 className="text-base font-semibold text-zinc-800 hover:text-teal-500 dark:text-zinc-100 dark:hover:text-teal-500">
             {hit.title}
           </h2>
           <div className="w-5/6 py-2">
