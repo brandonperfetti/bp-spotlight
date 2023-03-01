@@ -7,7 +7,7 @@ const HitCount = connectStateResults(({ searchState, searchResults }) => {
   const hitCount =
     searchResults?.hits.length && validQuery && searchResults.nbHits
 
-  console.log('searchResults', searchResults)
+  // console.log('searchResults', searchResults)
 
   return validQuery ? (
     <div className="float-right flex">
@@ -46,7 +46,6 @@ const PageHit = connectStateResults(({ searchState, searchResults, hit }) => {
 const HitsInIndex = ({ index }) => {
   return (
     <div className="max-h-[calc(100vh-15rem)] overflow-scroll">
-      {console.log('index', index)}
       <Index indexName={index.name}>
         <HitCount />
         <Hits className="Hits" hitComponent={PageHit} />

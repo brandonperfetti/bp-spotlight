@@ -181,7 +181,7 @@ function ModalTitle({ children }) {
           {!disableTrap && (
             <Dialog.Title
               as="h3"
-              className="pr-6 text-2xl font-normal text-gray-700 dark:text-white">
+              className="pr-6 text-xl font-medium text-zinc-600 dark:text-zinc-400">
               {children}
             </Dialog.Title>
           )}

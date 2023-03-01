@@ -149,7 +149,7 @@ function Newsletter() {
     }
 
     setErrors({ ...tempErrors })
-    console.log('errors', errors)
+    // console.log('errors', errors)
     return isValid
   }
 
@@ -175,7 +175,7 @@ function Newsletter() {
 
       const { error } = await res.json()
       if (error) {
-        console.log(error)
+        // console.log(error)
         setShowSuccessMessage(false)
         setShowFailureMessage(true)
         setButtonText('Send')
