@@ -8,7 +8,7 @@ const HitCount = connectStateResults(({ searchState, searchResults }) => {
 
   console.log('searchResults', searchResults)
 
-  return hitCount > 0 ? (
+  return validQuery ? (
     <div className="float-right flex">
       <div className="text-small py-2">
         {hitCount} result{hitCount !== 1 ? `s` : ``}
