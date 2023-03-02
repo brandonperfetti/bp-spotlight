@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { useState } from 'react'
 import { connectStateResults, Hits, Index } from 'react-instantsearch-dom'
 
 const HitCount = connectStateResults(({ searchState, searchResults }) => {

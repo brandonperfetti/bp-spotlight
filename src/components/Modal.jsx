@@ -30,7 +30,7 @@ export function Modal({
 
   const body = (
     <div
-      className={clsx('mt-8 flex min-h-screen justify-center', {
+      className={clsx('flex min-h-screen justify-center', {
         'items-center': !fullHeight,
         'p-4': size !== 'full-screen'
       })}>
